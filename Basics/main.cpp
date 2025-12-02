@@ -31,7 +31,13 @@ Objects and Variables:
 
 To create a variable, we tell the compiler we want one through a special type of declaration: a definition.
 Runtime is when the variable is provided a storage location. This is when the object is actually created.
+*/
 
+/*
+Data Types
+    - A data type determines what kind of value an object will store
+    - The type must be known at compile-time, and this type cannot be changed without recompilation.
+    - Multiple variables of the same type can be declared on the same line
 */
 
 // Every C++ program requires a main() function in order for it to successfully link.
@@ -57,5 +63,13 @@ int main() {
     // define a variable named x (of type int).
     // at compile-time, the compiler will note the definition (data type is int, identifier is x), and any following usages of its identifier, x, will be known as referring to this variable
     int x; 
+
+    int a;
+    int b;
+    // above and below are equivalent
+    int a, b;
+    // int a, int b; wrong!
+    // int a, double b; wrong!
+
     return 0;
 }
