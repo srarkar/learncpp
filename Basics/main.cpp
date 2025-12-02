@@ -22,6 +22,14 @@ If this was not included, we would get a compile error from the "std::cout".
 */
 #include <iostream>
 
+/*
+Objects and Variables:
+    - Rather than accessing memory directly, we instead use objects to access stored values
+    - An object is a region of storage (like RAM or a register) that can hold a value, and these objects have associated properties.
+    - We allow the compiler and operating system to abstract away knowing where to retrieve a value in memory from
+    - Objects can be unnamed/anonymous, but usually they are given a name/identifier. An object with a name is known as a variable.
+*/
+
 // Every C++ program requires a main() function in order for it to successfully link.
 int main() {
     /*
