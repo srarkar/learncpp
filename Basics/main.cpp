@@ -28,6 +28,10 @@ Objects and Variables:
     - An object is a region of storage (like RAM or a register) that can hold a value, and these objects have associated properties.
     - We allow the compiler and operating system to abstract away knowing where to retrieve a value in memory from
     - Objects can be unnamed/anonymous, but usually they are given a name/identifier. An object with a name is known as a variable.
+
+To create a variable, we tell the compiler we want one through a special type of declaration: a definition.
+Runtime is when the variable is provided a storage location. This is when the object is actually created.
+
 */
 
 // Every C++ program requires a main() function in order for it to successfully link.
@@ -43,9 +47,15 @@ int main() {
     Values directly placed in program code are known as literals. They are loaded into RAM when the program itself is loaded into the RAM.
     Some additional RAM is allocated for the program to store values that might be calculated, read from the user or from a file, etc. during runtime
     */
+    std::cout << "Hello World!";
+
     std::cout << 5;       // print the literal number `5`
     std::cout << -6.7;    // print the literal number `-6.7`
     std::cout << 'H';     // print the literal character `H`
     std::cout << "Hello"; // print the literal text `Hello`
+
+    // define a variable named x (of type int).
+    // at compile-time, the compiler will note the definition (data type is int, identifier is x), and any following usages of its identifier, x, will be known as referring to this variable
+    int x; 
     return 0;
 }
