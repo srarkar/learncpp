@@ -24,6 +24,20 @@ If this was not included, we would get a compile error from the "std::cout".
 
 // Every C++ program requires a main() function in order for it to successfully link.
 int main() {
-    std::cout << "Hello world!";
+    /*
+    Data is information that can be moved, processed, or stored by a computer.
+    A single piece of data is sometimes called a value. Some examples are:
+        - Numbers
+        - Characters, which are placed in single quotes
+        - Text (strings) which are placed in double quotes
+    Improper quotations can cause the compiler to try to interpret it as C++ code
+
+    Values directly placed in program code are known as literals. They are loaded into RAM when the program itself is loaded into the RAM.
+    Some additional RAM is allocated for the program to store values that might be calculated, read from the user or from a file, etc. during runtime
+    */
+    std::cout << 5;       // print the literal number `5`
+    std::cout << -6.7;    // print the literal number `-6.7`
+    std::cout << 'H';     // print the literal character `H`
+    std::cout << "Hello"; // print the literal text `Hello`
     return 0;
 }
