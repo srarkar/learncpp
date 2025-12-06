@@ -18,11 +18,15 @@ Variable Assignment
         Direct-initialization:
             - introduced for more efficient initialization of complex objects, but also recently fallen out of favor due to the existence of direct-list-initialization
             - also used when values are explicitly cast to another type (e.g. via static_cast).
-        List-initialization (aka uniform initialization or brace initialization)
+        List-initialization (aka uniform initialization or brace initialization):
             - modern approach to initializing objects
             - the curly braces tell us we are doing an initialization, compared to other forms such as copy or direct that can be ambiguous
             - disallows narrowing conversions, such as attempting to assign an integer a floating point number
-            
+            - it also supports initializations of a list of values
+        Value-initialization:
+            - a special type of list-initialization that leaves the curly braces empty
+            - this will set the variable to some default value, which depends on the object
+            - if this value is 0, then it is known as zero-initialization
 */
 int main() {
     // execution begins here and proceeds from top to bottom
@@ -55,6 +59,15 @@ int main() {
     int h (4.5); // compiler might give warning, but not error
 
     int i {4.5}; // this will not compile, requires explicit cast to allow it
+
+    /// direct-list-initialization versus value-initialization
+    // direct when we want to use the 0 value
+    int x { 0 };    // direct-list-initialization with initial value 0
+    std::cout << x; // we're using that 0 value here
+
+    // leave empty when planning to overwrite it anyways
+    int x {};      // value initialization
+    std::cin >> x; // we're immediately replacing that value so an explicit 0 would be meaningless
 
     return 0;
 }
