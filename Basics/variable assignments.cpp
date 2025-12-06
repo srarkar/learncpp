@@ -28,6 +28,13 @@ Variable Assignment
             - this will set the variable to some default value, which depends on the object
             - if this value is 0, then it is known as zero-initialization
 */
+
+/*
+    The [[maybe_unused]] attribute grants a compromise between deleting an unused variable and being forced to use it.
+    Applying it to a variable means that the compiler will not generate unused warnings if the variable is not used.
+    There is no performance impact due to compiler optimizations, but they should only be used in certain cases.
+    Example: need a list of named values, but which specific values are actually used in a given program may vary
+*/
 int main() {
     // execution begins here and proceeds from top to bottom
     int width; // define width, which allocates memory for the variable
@@ -68,6 +75,14 @@ int main() {
     // leave empty when planning to overwrite it anyways
     int x {};      // value initialization
     std::cin >> x; // we're immediately replacing that value so an explicit 0 would be meaningless
+
+    // common pitfall with initializers
+    int a = 4, b = 5; // correct: a and b both have initializers
+    int a, b = 5;     // wrong: a doesn't have its own initializer  
+
+    [[maybe_unused]] int t {4};
+
+    std::cout << t;
 
     return 0;
 }
