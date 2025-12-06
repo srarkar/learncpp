@@ -1,3 +1,5 @@
+// NOTE: compile with g++ -std=c++17 main.cpp
+
 /*
 Statements:
     - A computer program is a sequence of instructions that tell the computer what to do
