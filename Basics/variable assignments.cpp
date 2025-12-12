@@ -82,7 +82,5 @@ int main() {
 
     [[maybe_unused]] int t {4};
 
-    std::cout << t;
-
     return 0;
 }
