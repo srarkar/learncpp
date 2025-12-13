@@ -5,7 +5,7 @@ Functions
         Instead we can break our code into modular chunks that are much easier to organize and test individually
     As opposed to those provided in libraries, functions written ourselves are user-defined functions.
     A function call is sometimes called an invocation, with the caller invoking the callee
-
+    Functions help reduce repeated code (DRY)
 
 Basic Template of a Function:
     returnType functionName() // This is the function header (tells the compiler about the existence of the function)
