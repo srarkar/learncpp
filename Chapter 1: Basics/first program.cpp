@@ -1,5 +1,3 @@
-
-
 /*
     Expected Behavior:
         // 4 is the input from the user
