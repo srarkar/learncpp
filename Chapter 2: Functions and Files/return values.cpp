@@ -13,6 +13,9 @@ Return Values
         Not returning a value inside a value-returning function can cause compile errors and undefined behavior
 */
 
+void useless() {
+}
+
 int getValueFromUser() {
     std::cout << "Enter an integer: ";
     int input{ };
@@ -32,6 +35,9 @@ Main
 int main() {
     int input{ getValueFromUser() };
     std::cout << "Double of " << input << " is " << input * 2 << '\n';
+
+    std::cout << getValueFromUser(); // fine
+    // std::cout << useless(); // not allowed since there is no return value.
 
     // main automatically returns 0 when it finishes, but it is best to do it explicitly
     return EXIT_SUCCESS;
