@@ -20,6 +20,9 @@ int main() {
     // print double the user input
     std::cout << "Double of " << x << " is " << x * 2 << '\n';
 
+    // bonus: do the same for triple
+    std::cout << "Triple of " << x << " is " << x * 3 << '\n';
+
 
     return 0;
 }
