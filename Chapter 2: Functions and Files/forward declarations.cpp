@@ -38,6 +38,34 @@ Declarations and Definitions
     In C++, all definitions are declarations.
 */
 
+/*
+ODR
+    The one-definition rule, or ODR, has 3 parts:
+        - Within a file, each function, variable, type, or template in a given scope can only have one definition.
+            Definition occuring in different scopes do not violate this rule. 
+        - Within a program, each function or variable in scope can only have one definiton. Programs can have more than one file.
+            Functions and variables not visible to the linker are an exception to this rule
+        - Types, templates, inline functions, and inline variables are allowed to have duplicate definitons, so long as they are identical.
+    
+    Functions that share an identifier but have different sets of parameters are also considered to be distinct functions, so such definitions do not violate the ODR
+
+    int add(int x, int y)
+    {
+        return x + y;
+    }
+
+    int add(int x, int y) // violation of ODR, we've already defined function add(int, int)
+    {
+        return x + y;
+    }
+
+    int main()
+    {
+        int x{};
+        int x{ 5 }; // violation of ODR, we've already defined x
+    }
+*/
+
 
 // by adding this function prototype, we do not need to move the body of add() at all. 
 int add(int x, int y); // function declaration includes return type, name, parameters, and semicolon.  No function body!
