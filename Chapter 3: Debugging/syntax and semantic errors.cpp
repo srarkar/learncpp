@@ -38,5 +38,16 @@ Errors
             
             return "hello"; // "hello" cannot be converted to an int
         }
+*/
 
+/*
+Debugging
+    All bugs stem from a simple premise: something that is assumed to be correct, isn't.
+    A debugging process looks something like:
+        - Find the cause of the problem (usually a specific line)
+        - Understand why the issue is occurring
+        - Determine how to fix it
+        - Repair the issue
+        - Retest to ensure problem is fixed
+        - Retest to ensure no other problems emerged 
 */
