@@ -34,6 +34,29 @@ Header Files
         - Prefer putting documentation on what something does or how to use it in the header. It’s more likely to be seen there. Documentation describing how something works should remain in the source files.
 */
 
+/*
+Header Guards
+    Avoiding violations of the ODR can be difficult when dealing with header files.
+    Say we have a function defined in a1.h, and a2.h contains "#include a1.h". Lastly, let a3.h include both a1.h and a2.h.
+    This will cause a compiler error, since the preprocessor will effectively paste the contents of a1.h twice, causing duplicate definitions for the the functions in a1.h
+    Thus, we want some way to prevent re-defining when using header files. 
+
+    The structure of a header guard is as follows (all header files should have one):
+    #ifndef SOME_UNIQUE_NAME_HERE
+    #define SOME_UNIQUE_NAME_HERE
+
+    // your declarations (and certain types of definitions) here
+
+    #endif
+
+    Alternatively, simply adding #pragma once at the top of the header serves as a guard, with the compiler handling it
+    There is one known case where #pragma once will typically fail.
+        If a header file is copied so that it exists in multiple places on the file system, if somehow both copies of the header get included, 
+            header guards will successfully de-dupe the identical headers, but #pragma once won’t (because the compiler won’t realize they are actually identical content).
+    Note that #pragma once is not defined by the C++ standard, and some compilers may not implement it
+    Some development houses such as Google prefer traditional headers instead due to better portability
+*/
+
 // When we do #include <iostream>, we copy all the contents of the iostream file here, including the forward declaration for std::cout
 #include <iostream>
 #include "add.h"
