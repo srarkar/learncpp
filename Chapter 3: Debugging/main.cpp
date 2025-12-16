@@ -8,6 +8,6 @@ void printValue(int value)
 int main()
 {
     printValue(5);
-    std::cout << "hi!\n";
+    std::cout << "hi!" << '\n';
     return 0;
 }
