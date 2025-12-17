@@ -54,6 +54,12 @@ If your code is a container that returns a size, be sure to use a type that will
 Use care when converting integer types. Integer conversions and promotions can cause undefined behavior, leading to security bugs and other problems.
 */
 
+/*
+Notes on size_t
+    Sizeof returns a type std::size_t (recommended header for it is <cstddef>), an alias for an implementation-defined unsigned integral type. 
+    size_t also imposes an upper limit on the size of an object, since the byte-size of an object can be no larger than the largest value std::size_t can hold.
+*/
+
 #include <cstdint> // for fast and least types
 #include <iostream>
 
