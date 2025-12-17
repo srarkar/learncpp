@@ -18,3 +18,21 @@ Fundamental Data Types
     There are three sets of types: fundamental, compound, and those available in the C++ standard library (such as strings)
     Note that some modern types have a "_t" suffix
 */
+
+/*
+Void
+    Void means no type -- one example of an incomplete type: a type that has been declared by not defined.
+    This means the compiler is aware of them, but does not yet know how much memory to allocate for it.
+    Incomplete types cannot be instantiated, but still find use in specific contexts.
+
+    Void is primarily used as the return type for a function that doesn't return anything.
+    Also, (deprecated) in C it could be used for a function that doesn't take parameters
+
+    int getValue(void) // void here means no parameters
+    {
+        int x{};
+        std::cin >> x;
+        return x;
+    }
+    However, it is preferred to simply leave the () empty in C++.
+*/
