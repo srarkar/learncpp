@@ -1,5 +1,3 @@
-#include <iostream>
-
 /*
     The input/output (io) library is part of the C++ std library, and is used to get input from the keyboard and output data to a console.
         std::cout -> cout = character output. sends data to the console to be printed as text
@@ -32,8 +30,12 @@
                     The extraction operator removes from the front of the input buffer and stores it into a variable via copy-assignment
 
                     cin being buffered allows us to take a single input (ex: "4 5") and extract multiple times from it (x = 4, y = 5)
+        Outputting values in binary is a little harder, as std::cout doesn’t come with this capability built-in. Fortunately, the C++ standard library includes a type called std::bitset that will do this for us (in the <bitset> header).
+        To use std::bitset, we can define a std::bitset variable and tell std::bitset how many bits we want to store. The number of bits must be a compile-time constant. std::bitset can be initialized with an integral value (in any format, including decimal, octal, hex, or binary).
 */
 
+#include <bitset>
+#include <iostream>
 
 
 int main() {
@@ -74,5 +76,13 @@ int main() {
 
     std::cout << "You entered " << y << " and " << z << '\n';
 
+    // std::bitset<8> means we want to store 8 bits
+	std::bitset<8> bin1{ 0b1100'0101 }; // binary literal for binary 1100 0101
+	std::bitset<8> bin2{ 0xC5 }; // hexadecimal literal for binary 1100 0101
+
+	std::cout << bin1 << '\n' << bin2 << '\n';
+	std::cout << std::bitset<4>{ 0b1010 } << '\n'; // create a temporary std::bitset and print it
+    
     return 0;
 }
+
