@@ -20,16 +20,16 @@ int main()
 
     if (x == 0)
         std::cout << "The value is zero\n";
-    else if (x > 0):
+    else if (x > 0)
         std::cout << "The value is positive\n";
-    else:
+    else
         std::cout << "The value is negative\n";
 
     int y { 4 };
 
     if (y) // non-zero is evaluated as true
         std::cout << "hi\n";
-    else:
+    else
         std::cout << "bye\n";
 
     return 0;
