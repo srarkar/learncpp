@@ -28,7 +28,7 @@ int main()
     int value{ add(x, ++x) }; // undefined behavior, due to the side effect of the pre-increment.
     // value's contents depends on what order your compiler evaluates the function arguments in
 
-    std::cout << value << '\n'; // unknown value!
+    std::cout << value << '\n'; // unknown value! if x was originally 5, this could be 11 or 12
 
     return 0;
 }
