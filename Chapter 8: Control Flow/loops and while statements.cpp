@@ -26,7 +26,7 @@ void printAlphabet() {
 int main()
 {
     printAlphabet();
-    return 0;
+
     int count{ 1 };
     while (count <= 10)
     {
