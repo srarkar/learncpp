@@ -16,29 +16,54 @@ Function Templates
         Type template parameters (where the template parameter represents a type).
         Non-type template parameters (where the template parameter represents a constexpr value).
         Template template parameters (where the template parameter represents a template).
+    The normal function call syntax will prefer a non-template function over an equally viable function instantiated from a template.
+
+    When a static local variable is used in a function template, each function instantiated from that template will have a separate version of the static local variable.
+    For a non-const static local variable, this can lead to unexpected behavior.
+
+    Generally, use function templates to write generic code that can work with a wide variety of types whenever you have the need.
 */
 
-/// Say we want to make a template for the following:
-/* 
+/* Say we want to make a template for the following:
+
 int max(int x, int y)
  {
      return (x < y) ? y : x;
  }
-*/
+
 
 // Only one type (int) needs replacing, so we can replace any instances of it that we want to generalize with some placeholder type T
 
-/*
+
 T max(T x, T y) // won't compile because we haven't defined T
 {
     return (x < y) ? y : x;
 }
-*/
+
 
 // Thus, we need a template parameter declaration so that the existence of T is known.
+*/
 
-template <typename T> // this is the template parameter declaration defining T as a type template parameter
-T max(T x, T y) // this is the function template definition for max<T>
+#include <iostream>
+
+template <typename T> // template parameter declaration for T
+T max(T x, T y)
 {
+    std::cout << "called max<int>(int, int)\n";
     return (x < y) ? y : x;
+}
+
+int max(int x, int y)
+{
+    std::cout << "called max(int, int)\n";
+    return (x < y) ? y : x;
+}
+
+int main()
+{
+    std::cout << max<int>(1, 2) << '\n'; // calls max<int>(int, int)
+    std::cout << max<>(1, 2) << '\n';    // deduces max<int>(int, int) (non-template functions not considered)
+    std::cout << max(1, 2) << '\n';      // calls max(int, int)
+
+    return 0;
 }
