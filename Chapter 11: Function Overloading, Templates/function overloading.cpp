@@ -55,8 +55,6 @@ Overload Resolution
             Often, the best way is simply to define a new overloaded function that takes parameters of exactly the type you are trying to call the function with. 
                 Then C++ will be able to find an exact match for the function call.
             Alternatively, explicitly cast the ambiguous argument(s) to match the type of the function you want to call. 
-
-
 */
 
 #include <iostream>
