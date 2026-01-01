@@ -22,6 +22,9 @@ Function Templates
     For a non-const static local variable, this can lead to unexpected behavior.
 
     Generally, use function templates to write generic code that can work with a wide variety of types whenever you have the need.
+    We can use multiple template type parameters if we have multiple parameter types
+
+    When overloading function templates, the compiler will choose the most restricted/specialized one available.
 */
 
 /* Say we want to make a template for the following:
@@ -51,6 +54,12 @@ T max(T x, T y)
 {
     std::cout << "called max<int>(int, int)\n";
     return (x < y) ? y : x;
+}
+
+template <typename T, typename U> // We're using two template type parameters named T and U
+T max(T x, U y) // x can resolve to type T, and y can resolve to type U
+{
+    return (x < y) ? y : x; // uh oh, we have a narrowing conversion problem here
 }
 
 int max(int x, int y)
