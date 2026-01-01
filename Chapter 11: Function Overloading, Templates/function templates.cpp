@@ -25,10 +25,17 @@ Function Templates
     We can use multiple template type parameters if we have multiple parameter types
 
     When overloading function templates, the compiler will choose the most restricted/specialized one available.
+
+Function Templates Across Files
+    When using a function template across files, it is often best to put the function definition in the header file. Otherwise, the versions of the function will not be instantiated, causing linker errors.
+    This doesn't violate ODR since having multiple inline functions is fine so long as they are identical, which they are since the header files give all of them copies.
+        This is because functions implicitly instantiated from function templates are implicitly inline
+    
+    
+
 */
 
 /* Say we want to make a template for the following:
-
 int max(int x, int y)
  {
      return (x < y) ? y : x;
@@ -36,13 +43,10 @@ int max(int x, int y)
 
 
 // Only one type (int) needs replacing, so we can replace any instances of it that we want to generalize with some placeholder type T
-
-
 T max(T x, T y) // won't compile because we haven't defined T
 {
     return (x < y) ? y : x;
 }
-
 
 // Thus, we need a template parameter declaration so that the existence of T is known.
 */
