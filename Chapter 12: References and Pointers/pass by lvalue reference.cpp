@@ -74,6 +74,28 @@ Cost of Pass-by-Value vs Pass-by-Reference
         It’s best to assume that most standard library classes have setup costs, unless you know otherwise that they don’t.
 */  
 
+/*
+string_view vs const std::string&
+    In most cases, std::string_view is the better choice over const std::string&, as it can handle a wider range of argument types efficiently. 
+    A std::string_view parameter also allows the caller to pass in a substring without having to copy that substring into its own string first.
+
+    With a std::string_view value parameter:
+        If we pass in a std::string argument, the compiler will convert the std::string to a std::string_view, which is inexpensive, so this is fine.
+        If we pass in a std::string_view argument, the compiler will copy the argument into the parameter, which is inexpensive, so this is fine.
+        If we pass in a C-style string or string literal, the compiler will convert these to a std::string_view, which is inexpensive, so this is fine.
+        As you can see, std::string_view handles all three cases inexpensively.
+
+    With a const std::string& reference parameter:
+        If we pass in a std::string argument, the parameter will reference bind to the argument, which is inexpensive, so this is fine.
+        If we pass in a std::string_view argument, the compiler will refuse to do an implicit conversion, and produce a compilation error. We can use static_cast to do an explicit conversion (to std::string), but this conversion is expensive (since std::string will make a copy of the string being viewed). Once the conversion is done, the parameter will reference bind to the result, which is inexpensive. But we’ve made an expensive copy to do the conversion, so this isn’t great.
+        If we pass in a C-style string or string literal, the compiler will implicitly convert this to a std::string, which is expensive. So this isn’t great either.
+        Thus, a const std::string& parameter only handles std::string arguments inexpensively.
+
+
+
+
+*/
+
 #include <iostream>
 #include <string>
 
