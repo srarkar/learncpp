@@ -16,7 +16,7 @@ Optimization
 /*
 The As-if Rule
     A compiler can modify behavior however it wishes, so long as those modifications do not affect observable behavior. 
-        The only notable exception is for unnecessary calls to a copy or move constructor, even if those constructors have observable behavior
+        The only notable exception is for unnecessary calls to a copy or move constructor, even if those constructors have observable behavior.
 
 Compile-Time Optimization
     One method of optimizing is partially or fully evaluating an expression at compile time. In doing so, the actual executable is smaller/faster, at the cost of a slightly slower compilation process.
