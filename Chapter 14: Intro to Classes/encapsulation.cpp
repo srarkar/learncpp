@@ -25,13 +25,17 @@ Data Hiding (encapsulation)
         This spotlights the public interface and de-emphasizes implementation details.
 
     Google C++ style guide on this order:
-        Types and type aliases (typedef, using, enum, nested structs and classes, and friend types)
-        Static constants
-        Factory functions
-        Constructors and assignment operators
-        Destructor
-        All other functions (static and non-static member functions, and friend functions)
-        Data members (static and non-static)
+        Group similar declarations together, placing public parts earlier.
+        A class definition should usually start with a public: section, followed by protected:, then private:. Omit sections that would be empty.
+        
+        Within each section, prefer grouping similar kinds of declarations together, and prefer the following order:
+            Types and type aliases (typedef, using, enum, nested structs and classes, and friend types)
+            Static constants
+            Factory functions
+            Constructors and assignment operators
+            Destructor
+            All other functions (static and non-static member functions, and friend functions)
+            Data members (static and non-static)
 */
 
 #include <iostream>
