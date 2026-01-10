@@ -15,9 +15,6 @@ Constexpr Aggregates and Classes
 
     Normally you won’t see constexpr and const used right next to each other, but one case where this does happen is when you have a constexpr member function that returns a const reference (or (const) pointer-to-const).
     The constexpr indicates that the member function can be evaluated at compile-time. The const int& is the return type of the function. The rightmost const means the member-function itself is const so it can be called on const objects.
-    
-
-
 */
 
 #include <iostream>
