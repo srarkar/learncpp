@@ -21,7 +21,7 @@ class Employee
 {
 public:
     using IDType = int;
-	enum Type // fully qualified name is Employe::Type
+	enum Type // fully qualified name is Employee::Type
 	{
 		janitor,
 		intern,
